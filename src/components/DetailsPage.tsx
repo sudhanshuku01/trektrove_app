@@ -76,12 +76,12 @@ const DetailsPage: React.FC<DetailsPageProps> = ({
   };
 
   const handleLike = async (name: string) => {
-    if (auth.user === null) {
-      showToast('Login To Like Destinations');
-      return;
-    }
     if (!isConnected) {
       showToast('Oops! 🙋‍♂️ No Internet Connection');
+      return;
+    }
+    if (auth.user === null) {
+      showToast('Login To Like Destinations');
       return;
     }
     try {
@@ -107,12 +107,12 @@ const DetailsPage: React.FC<DetailsPageProps> = ({
   };
 
   const handleUnlike = async (name: string) => {
-    if (auth.user === null) {
-      showToast('Login To Like Destinations');
-      return;
-    }
     if (!isConnected) {
       showToast('Oops! 🙋‍♂️ No Internet Connection');
+      return;
+    }
+    if (auth.user === null) {
+      showToast('Login To Like Destinations');
       return;
     }
     try {
@@ -151,7 +151,6 @@ const DetailsPage: React.FC<DetailsPageProps> = ({
     return <Apploader />;
   }
 
-  console.log('details page');
   return (
     <ScrollView
       scrollEnabled={!fetching}

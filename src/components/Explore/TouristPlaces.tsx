@@ -107,8 +107,6 @@ const TouristPlaces = () => {
     },
   ];
 
-  console.log('tourist place');
-
   return (
     <ScrollView style={styles.container}>
       {categories.map((category, index) => (

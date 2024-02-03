@@ -34,7 +34,7 @@ const FetchedComment:React.FC<FetchedCommentType> = ({setFetching,Place}) => {
   const [commentsData, setCommentsData] = useState<commentType[]>([]);
   const [auth,setAuth]=useAuth();
   const {isConnected}=useContext(NetworkContext);
-
+  
   const getAllComments = async () => {
     try {
       setFetching(true);
@@ -74,7 +74,6 @@ const FetchedComment:React.FC<FetchedCommentType> = ({setFetching,Place}) => {
    }
   },[auth,setAuth,isConnected])
 
-  console.log('fetchedcomment')
 
 return (
   <>

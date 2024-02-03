@@ -16,6 +16,7 @@ import Tungnath from '../Tungnath/Tungnath'
 import Yamunotri from '../Yamunotri/Yamunotri'
 import Demo from '../Pending/Demo'
 import Nearnitukplace from '../Nearnitukplace/Nearnitukplace'
+import FlowerofVally from '../FlowerofVally/FlowerofVally'
 
 
 interface GuideProps{
@@ -102,10 +103,6 @@ export const Route:RouteItem[] = [
   },
   {
     name: 'Rajaji National Park',
-    Page: <Demo />
-  },
-  {
-    name: 'Valley of Flowers National Park',
     Page: <Demo />
   },
   {

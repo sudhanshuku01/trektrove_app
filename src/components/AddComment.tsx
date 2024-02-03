@@ -62,7 +62,7 @@ const AddComment: React.FC<AddCommentType> = ({setFetching,getAllComments, Place
       30,
     );
   };
-  console.log('add comment')
+ 
   return (
     <View style={styles.Commentcontainer}>
       <Text style={styles.title}>Discussion</Text>

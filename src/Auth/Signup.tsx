@@ -1,8 +1,9 @@
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import React, {useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import user_IMG from '../images/Others/userimg.png';
-
+import {useAuth} from '../Context/Authcontext';
+import {NetworkContext} from '../Context/NetworkProvider';
 import {
   StyleSheet,
   Text,
@@ -14,6 +15,7 @@ import {
   ImageProps,
   ImageResolvedAssetSource,
   ImageURISource,
+  ToastAndroid,
 } from 'react-native';
 
 import {
@@ -27,8 +29,12 @@ import {
 import {AuthStackParamList} from '../Screens/Auth';
 import Header from '../components/Header';
 import axios from 'axios';
+import Apploader from '../components/Apploader';
 
 const Signup = () => {
+  const [fetching, setFetching] = useState(false);
+  const [auth, setAuth] = useAuth();
+  const {isConnected} = useContext(NetworkContext);
   const imageSource = Image.resolveAssetSource(user_IMG).uri;
 
   const navigation =
@@ -41,26 +47,69 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const [profilePicture, setProfilePicture] = useState<string>(imageSource); // 
+  const [profilePicture, setProfilePicture] = useState<string>(imageSource); //
 
-  const handleSignup =async  () => {
-    
+  const handleSignup = async () => {
+    if (!isConnected) {
+      showToast(' Oops🤷 No internet connection ');
+      return;
+    }
+    if (
+      username.trim().length < 1 ||
+      firstName.trim().length < 1 ||
+      lastName.trim().length < 1 ||
+      email.trim().length < 1 ||
+      password.trim().length < 1 ||
+      confirmPassword.trim().length < 1
+    ) {
+      showToast('All Fields is required');
+      return;
+    }
+    if (password !== confirmPassword) {
+      showToast('password and confirm password are not matched');
+      return;
+    }
     try {
-    
+      setFetching(true);
       const productData = new FormData();
-      productData.append("username", username);
-      productData.append("firstName", firstName);
-      productData.append("lastName", lastName);
-      productData.append("email", email);
-      productData.append("password", password);
-      productData.append("profilePicture", profilePicture);
-     const response=await axios.post('auth/signup',productData);
-
+      productData.append('username', username);
+      productData.append('firstName', firstName);
+      productData.append('lastName', lastName);
+      productData.append('email', email);
+      productData.append('password', password);
+      productData.append('profilePicture', profilePicture);
+      const response = await axios.post(
+        'https://backend-t-u090.onrender.com/auth/signup',
+        productData,
+      );
+      if (response && response.data.success) {
+        showToast(response.data.message);
+        navigation.push('Notification');
+      } else {
+        showToast('Something went please try after some time ');
+      }
     } catch (error) {
       console.log(error);
-      
+      showToast('Something went please try after some time ');
+    } finally {
+      setFetching(false);
     }
+  };
 
+  useEffect(() => {
+    if (auth.user !== null) {
+      navigation.replace('Profile');
+    }
+  }, [auth, setAuth, isConnected]);
+
+  const showToast = (msg: string) => {
+    ToastAndroid.showWithGravityAndOffset(
+      msg,
+      ToastAndroid.SHORT,
+      ToastAndroid.TOP,
+      0,
+      30,
+    );
   };
 
   const openImagePicker = () => {
@@ -111,6 +160,7 @@ const Signup = () => {
       showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.signup}>
       <Header />
+      {fetching && <Apploader />}
       <View style={styles.container}>
         <Text style={styles.title}>Signup Now</Text>
         <TextInput

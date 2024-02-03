@@ -29,7 +29,7 @@ const Getstarted = () => {
       hideWelcome();
     }, 5000);
   }, []);
-  console.log('done');
+
   return (
     <>
       {isVisible && (

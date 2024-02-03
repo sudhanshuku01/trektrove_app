@@ -30,13 +30,10 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   });
   axios.defaults.headers.common["Authorization"] = auth.token;
 
-  console.log(axios.defaults.baseURL)
-
-
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async () => { 
       try {
-        const data = await AsyncStorage.getItem("TrekTripperAuth");
+        const data = await AsyncStorage.getItem("TrekTroveAuth");
         if (data) {
           const parseData: AuthState = JSON.parse(data);
           setAuth({ 

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Overview from './Overview';
 
 import {
-  ScrollView,
+  ScrollView, 
   StyleSheet,
 } from 'react-native';
 import Itinerary from './Itinerary';

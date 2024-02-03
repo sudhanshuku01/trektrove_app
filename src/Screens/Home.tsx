@@ -1,7 +1,6 @@
-// Add the following import at the beginning of your file
-import React, {useEffect, useState} from 'react';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {RootStackParamList} from '../App';
+
+import React from 'react';
+
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 import {
@@ -15,8 +14,9 @@ import {
   NativeScrollEvent,
 } from 'react-native';
 import Search from '../components/Search';
+import Getstarted from '../components/Getstarted';
 
-const Home = () => {
+const Home = () => { 
   return (
     <SafeAreaView style={styles.home}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -27,7 +27,7 @@ const Home = () => {
         </View>
         <Search />
         <Hero />
-        {/* <Getstarted /> */}
+        <Getstarted />
       </ScrollView>
     </SafeAreaView>
   );
