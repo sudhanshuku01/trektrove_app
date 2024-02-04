@@ -115,7 +115,7 @@ const Login = () => {
         </View>
         <View style={styles.Linkview}>
           <Text style={styles.Link}>Create Guest User ?</Text>
-          <TouchableOpacity onPress={() => navigation.push('Signup')}>
+          <TouchableOpacity onPress={() => navigation.push('Guest')}>
             <Text style={styles.bold}>Guest</Text>
           </TouchableOpacity>
         </View>

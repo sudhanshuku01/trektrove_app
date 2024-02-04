@@ -156,7 +156,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({
       scrollEnabled={!fetching}
       showsVerticalScrollIndicator={false}
       style={styles.detailspage}>
-      <ImageBackground
+       <ImageBackground
         resizeMode="cover"
         source={DATA.Images[imgindex]}
         style={styles.backgroundImage}>

@@ -1,7 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {useContext, useEffect, useState} from 'react';
-import user_IMG from '../images/Others/userimg.png';
+// import user_IMG from '../images/Others/userimg.png';
 import {useAuth} from '../Context/Authcontext';
 import {NetworkContext} from '../Context/NetworkProvider';
 import {
@@ -16,6 +16,7 @@ import {
   ImageResolvedAssetSource,
   ImageURISource,
   ToastAndroid,
+  PermissionsAndroid,
 } from 'react-native';
 
 import {
@@ -35,8 +36,6 @@ const Signup = () => {
   const [fetching, setFetching] = useState(false);
   const [auth, setAuth] = useAuth();
   const {isConnected} = useContext(NetworkContext);
-  const imageSource = Image.resolveAssetSource(user_IMG).uri;
-
   const navigation =
     useNavigation<NativeStackNavigationProp<AuthStackParamList>>();
 
@@ -47,7 +46,7 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const [profilePicture, setProfilePicture] = useState<string>(imageSource); //
+  const [profilePicture, setProfilePicture] = useState<any>(); //
 
   const handleSignup = async () => {
     if (!isConnected) {
@@ -71,26 +70,34 @@ const Signup = () => {
     }
     try {
       setFetching(true);
-      const productData = new FormData();
-      productData.append('username', username);
-      productData.append('firstName', firstName);
-      productData.append('lastName', lastName);
-      productData.append('email', email);
-      productData.append('password', password);
-      productData.append('profilePicture', profilePicture);
+      const userData = new FormData();
+      userData.append('username', username);
+      userData.append('firstName', firstName);
+      userData.append('lastName', lastName);
+      userData.append('email', email);
+      userData.append('password', password);
+      userData.append('confirmPassword', confirmPassword);
+      userData.append('profilePicture', profilePicture);
+      console.log(profilePicture)
       const response = await axios.post(
         'https://backend-t-u090.onrender.com/auth/signup',
-        productData,
+        userData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        },
       );
       if (response && response.data.success) {
         showToast(response.data.message);
         navigation.push('Notification');
+        console.log("done")
       } else {
-        showToast('Something went please try after some time ');
+        showToast('Something went please try after some time');
       }
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
-      showToast('Something went please try after some time ');
+      console.log(error.response.data)
     } finally {
       setFetching(false);
     }
@@ -126,15 +133,25 @@ const Signup = () => {
       } else if (response.errorCode) {
         console.log('Image picker error: ', response.errorMessage);
       } else {
-        let imageUri = response.assets?.[0]?.uri;
+        let imageUri = response.assets?.[0].uri;
         if (imageUri) {
           setProfilePicture(imageUri);
+          console.log(response);
+          console.log(imageUri);
         }
       }
     });
   };
 
-  const handleCameraLaunch = () => {
+  const handleCameraLaunch = async () => {
+    const hascamerapermission =
+      PermissionsAndroid.RESULTS.GRANTED === 'granted';
+    if (!hascamerapermission) {
+      showToast('no camera permission please allow');
+      return;
+    } else {
+      await requestCameraPermission();
+    }
     const options: CameraOptions = {
       mediaType: 'photo',
       includeBase64: false,
@@ -148,19 +165,45 @@ const Signup = () => {
       } else if (response.errorCode) {
         console.log('Camera Error: ', response.errorMessage);
       } else {
-        let imageUri = response.assets?.[0]?.uri;
+        let imageUri = response.assets?.[0].uri;
         if (imageUri) {
           setProfilePicture(imageUri);
+          // console.log(response);
         }
       }
     });
   };
+
+  const requestCameraPermission = async () => {
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.CAMERA,
+        {
+          title: 'App Camera Permission',
+          message: 'App needs access to your camera ',
+          buttonNeutral: 'Ask Me Later',
+          buttonNegative: 'Cancel',
+          buttonPositive: 'OK',
+        },
+      );
+      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+        showToast('camera permission granted successfully');
+      } else {
+        showToast('please allow camera for take picture');
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
-    <ScrollView
+       <>
+       {fetching && <Apploader/>}
+         <ScrollView
+      scrollEnabled={!fetching}
       showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.signup}>
       <Header />
-      {fetching && <Apploader />}
       <View style={styles.container}>
         <Text style={styles.title}>Signup Now</Text>
         <TextInput
@@ -203,7 +246,10 @@ const Signup = () => {
           secureTextEntry={true}
         />
         {profilePicture && (
-          <Image source={{uri: profilePicture}} style={styles.profileImage} />
+          <Image
+            source={{uri: profilePicture}}
+            style={styles.profileImage}
+          />
         )}
         <TouchableOpacity
           style={styles.imagePickerButton}
@@ -227,12 +273,13 @@ const Signup = () => {
         </View>
         <View style={styles.Linkview}>
           <Text style={styles.Link}>Create Guest User ?</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+          <TouchableOpacity onPress={() => navigation.navigate('Guest')}>
             <Text style={styles.bold}>Guest</Text>
           </TouchableOpacity>
         </View>
       </View>
     </ScrollView>
+       </>
   );
 };
 

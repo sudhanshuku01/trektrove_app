@@ -7,6 +7,7 @@ export type AuthStackParamList = {
   ForgotPassword: undefined;
   Profile: undefined;
   Notification: undefined;
+  Guest:undefined
 };
 
 const AuthStack = createNativeStackNavigator<AuthStackParamList>();
@@ -16,6 +17,7 @@ import Signup from '../Auth/Signup';
 import ForgotPassword from '../Auth/ForgotPassword';
 import Profile from '../Auth/Profile';
 import Notification from '../Auth/Notification';
+import Guest from '../Auth/Guest';
 
 const AuthNavigator = () => {
   return (
@@ -54,6 +56,13 @@ const AuthNavigator = () => {
         options={{
           headerShown: false,
         }}
+      />
+      <AuthStack.Screen
+      name='Guest'
+      component={Guest}
+      options={{
+        headerShown:false
+      }}
       />
     </AuthStack.Navigator>
   );
