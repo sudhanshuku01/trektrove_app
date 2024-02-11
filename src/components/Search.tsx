@@ -59,7 +59,9 @@ const Search = () => {
           value={searchText}
           onChangeText={handleSearch}
         />
+        <TouchableOpacity>
         <Image style={styles.simage} source={searchimg} />
+        </TouchableOpacity>
       </View>
       <View>
         {(isTextInputActive || searchText.trim().length > 0) && (
@@ -87,7 +89,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
-    backgroundColor: '#f2f2f2',
+    backgroundColor: 'rgba(24, 70, 90, 1)',
     width: '80%',
     borderRadius: 20,
     alignSelf: 'center',
@@ -102,13 +104,13 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     marginLeft: 8,
-    color: '#333',
+    color: 'rgba(239, 241, 238, 1)',
     fontFamily:'PlusJakartaSans-Regular', 
   },
   simage: {
     width: 20,
     height: 20,
-    tintColor: '#355c7d',
+    tintColor: 'rgba(239, 241, 238, 1)',
   },
   flatList: {
     marginTop: 10,

@@ -13,7 +13,7 @@ const About = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to TrekTripper</Text>
+      <Text style={styles.title}>Welcome to TrekTrove</Text>
       <Text style={styles.paragraph}>
         🏔️ TrekTripper is an immersive travel companion designed with love and passion by students
         from the National Institute of Technology (NIT) Uttarakhand. Our mission is to ignite your
@@ -60,24 +60,22 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 23,
     marginBottom:10,
-    color:'#4d6160',
+    color:'rgba(101, 64, 58, 1)',
     fontFamily:'Raleway-Bold',
   },
   paragraph: {
     fontSize: 16,
-    marginBottom: 12,
+    marginBottom: 20,
     lineHeight: 22,
-    color:'#493736',
+    color:'rgba(24, 70, 90, 1)',
     fontFamily:'PlusJakartaSans-Regular',
-    backgroundColor:'rgba(126,127,161,0.2)',
-    padding:15,
     borderRadius:20
   },
   signature: {
     marginTop: 16, 
     fontSize:16,
     fontFamily:'PlusJakartaSans-Italic',
-    color: '#888',
+    color: 'rgba(24, 70, 90, 1)',
     textAlign: 'center',
   },
   contactText: {
@@ -85,6 +83,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily:'Raleway-Bold',
     textAlign: 'center',
+    color:'rgba(101, 64, 58, 1)'
   },
 
   linksContainer: {
@@ -93,7 +92,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   link: {
-    color: '#3498db',
+    color: '#1c80a5',
     textDecorationLine: 'underline',
     fontFamily:'PlusJakartaSans-Medium'
   },

@@ -161,6 +161,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({
         source={DATA.Images[imgindex]}
         style={styles.backgroundImage}>
         <TouchableHighlight
+          underlayColor={"red"}
           onPress={() =>
             likedPlaces.includes(DATA.name)
               ? handleUnlike(DATA.name)
@@ -202,7 +203,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({
 
 const styles = StyleSheet.create({
   detailspage: {
-    backgroundColor: '#ffffff',
+    backgroundColor: '#eff1ee',
   },
   detailspage_image: {},
   backgroundImage: {
@@ -216,7 +217,7 @@ const styles = StyleSheet.create({
     left: 40,
   },
   placeName: {
-    color: '#ffffff',
+    color: '#dad5da',
     fontSize: 20,
     fontFamily: 'Nunito-Bold',
     marginBottom: 1,
@@ -229,13 +230,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   mapIcon: {
-    width: 15,
-    height: 15,
-    tintColor: '#ffffff',
+    width: 20,
+    height: 20,
+    tintColor: '#18465a',
     marginRight: 5,
   },
   locationText: {
-    color: '#ffffff',
+    color: '#dad5da',
     fontFamily: 'Nunito-Regular',
     fontSize: 16,
     textShadowColor: 'rgba(0, 0, 0, 1)',

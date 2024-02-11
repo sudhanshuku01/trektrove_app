@@ -142,14 +142,16 @@ const Category: React.FC<CategoryProps> = ({title, children}) => {
 
 const styles = StyleSheet.create({
   container: {},
-  categoryContainer: {},
+  categoryContainer: {
+
+  },
   categoryItemScrollview: {
     marginBottom: 70,
   },
   categoryTitle: {
     fontSize: 22,
     marginBottom: 10,
-    color: '#4d6160',
+    color: 'rgba(101, 64, 58, 1)',
     fontFamily: 'Raleway-Bold',
     paddingHorizontal: 15,
   },

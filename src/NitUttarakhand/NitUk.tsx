@@ -31,38 +31,38 @@ const styles = StyleSheet.create({
 
     },
     nitukclickcontainer:{
+      borderRadius:10,
+      overflow:"hidden"
     },
     backgroundImage:{
-     height:300,
+     height:250,
      width:'100%',
      objectFit:'cover',
-     borderTopLeftRadius:20,
-     borderTopRightRadius:20
     },
     textcontainer:{
-     padding:8,
-     backgroundColor:'rgba(126,127,161,0.2)',
+     padding:10,
+     backgroundColor:'rgba(24, 70, 90, 1)',
     },
     text1:{
-     fontSize:22,
-     fontFamily:'Raleway-Bold',
+     fontSize:21,
+     fontFamily:'PlusJakartaSans-Medium',
      marginVertical:5,
-     color:'#4d6160'
+     color:'rgba(239, 241, 238, 1)'
     },
     text2:{
         fontSize:16,
         fontFamily:'PlusJakartaSans-Regular',
-        color:'#493736',
-        lineHeight:22,
+        color:'rgba(239, 241, 238, 1)',
     },
     readmore:{
-        backgroundColor:'rgba(126,127,161,0.9)',
-        fontSize:17,
+        width:100,
+        backgroundColor:'#b84c36',
+        fontSize:15,
         textAlign:'center',
-        fontFamily:'PlusJakartaSans-Medium',
         borderRadius:8,
-        paddingVertical:3,
-        marginVertical:20
+        padding:4,
+        marginVertical:20,
+        color:'rgba(239, 241, 238, 1)'
     }
 })
 

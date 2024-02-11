@@ -20,7 +20,7 @@ const Badrinath = () => {
     >
       <GuideHeadList active={active} setActive={setActive}/>
       {active === 'Overview' && <Overview />}
-      { active === 'Itinerary' && <Itinerary/>}
+      {active === 'Itinerary' && <Itinerary/>}
       {active ==='How To Reach' && <HowToReach/>}
       {active === 'Inclusions & Exclusions' && <IncExc />}
       {active === 'Best Time To Visit' && <BestTime />}

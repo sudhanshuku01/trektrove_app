@@ -14,7 +14,8 @@ export interface UserDataType {
   userName:string,
   firstName:string,
   lastName:string,
-  email:string
+  email:string,
+  GuestAccount:boolean
 }
 
 const AuthContext = createContext<AuthContextType | null>(null);

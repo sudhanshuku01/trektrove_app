@@ -80,9 +80,11 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     padding: 15,
   },
-  placeContainer: {},
+  placeContainer: {
+
+  },
   placeName: {
-    color: '#ffffff',
+    color: '#dad5da',
     fontSize: 20,
     fontFamily: 'Nunito-Bold',
     marginBottom: 1,
@@ -91,7 +93,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 2,
   },
   placeDescription: {
-    color: '#ffffff',
+    color: '#dad5da',
     fontFamily: 'Nunito-Regular',
     fontSize: 15,
     textShadowColor: 'rgba(0, 0, 0, 1)',

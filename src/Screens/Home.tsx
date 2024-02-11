@@ -23,7 +23,7 @@ const Home = () => {
         <Header />
         <View style={styles.quotes}>
           <Text style={styles.quotes_text}>Discover</Text>
-          <Text style={styles.quotes_text}>world with TrekTripper </Text>
+          <Text style={styles.quotes_text}>world with TrekTrove </Text>
         </View>
         <Search />
         <Hero />
@@ -37,7 +37,7 @@ export default Home;
 
 const styles = StyleSheet.create({
   home: {
-    backgroundColor: '#ffffff',
+    backgroundColor: 'rgba(239, 241, 238,1)', 
   },
   quotes: {
     paddingHorizontal: 15,
@@ -46,5 +46,6 @@ const styles = StyleSheet.create({
   quotes_text: {
     fontSize: 25,
     fontFamily: 'Poppins-BlackItalic',
+    color:' rgba(24, 70, 90, 1)'
   },
 });

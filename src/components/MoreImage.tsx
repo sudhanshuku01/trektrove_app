@@ -2,11 +2,11 @@ import React, {Dispatch, SetStateAction, useState} from 'react';
 
 import {
   Image,
-  TouchableHighlight,
   ImageProps,
   StyleSheet,
   Text,
   View,
+  TouchableOpacity,
 } from 'react-native';
 type MoreImagesProps={
   Images: ImageProps[];
@@ -17,7 +17,7 @@ const MoreImage: React.FC<MoreImagesProps> = ({Images,imgindex,setImgindex}) => 
   return (
     <View style={styles.MoreImage}>
       {Images.map((img, index) => (
-        <TouchableHighlight
+        <TouchableOpacity
          onPress={()=>setImgindex(index)}
          key={index}>
           <Image
@@ -29,7 +29,7 @@ const MoreImage: React.FC<MoreImagesProps> = ({Images,imgindex,setImgindex}) => 
             ]}
             source={img}
           />
-        </TouchableHighlight>
+        </TouchableOpacity>
       ))}
     </View>
   );

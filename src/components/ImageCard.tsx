@@ -8,6 +8,7 @@ import {
   ImageBackground,
   Image,
   ActivityIndicator,
+  TouchableOpacity
 } from 'react-native';
 import DropShadow from 'react-native-drop-shadow';
 
@@ -51,9 +52,9 @@ const ImageCard = () => {
     <View style={styles.imageCardContainer}>
       <View style={styles.seeallContainer}>
         <Text style={styles.topdestination}>Top Destinations</Text>
-        <TouchableHighlight onPress={() => navigation.push('Explore')}>
+        <TouchableOpacity onPress={() => navigation.push('Explore')}>
           <Text style={styles.seeall}>see all</Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
       </View>
       <FlatList
         style={styles.flatlist}
@@ -71,7 +72,7 @@ const ImageCard = () => {
               shadowOpacity: 1,
               shadowRadius: 3,
             }}>
-            <TouchableHighlight
+            <TouchableOpacity 
               onPress={() =>
                 navigation.navigate('Details', {Place: `${item.name}`})
               }
@@ -89,7 +90,7 @@ const ImageCard = () => {
                   </View>
                 </View>
               </ImageBackground>
-            </TouchableHighlight>
+            </TouchableOpacity>
           </DropShadow>
         )}
         keyExtractor={(item, index) => index.toString()}
@@ -112,10 +113,10 @@ const styles = StyleSheet.create({
   topdestination: {
     fontSize: 23,
     fontFamily: 'Raleway-Bold',
-    color: '#4d6160',
+    color: 'rgba(101, 64, 58, 1)',
   },
   seeall: {
-    color: '#005bc5',
+    color: '#1c80a5',
     fontSize: 18,
     fontFamily: 'PlusJakartaSans-Medium',
   },
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
     width: 160,
   },
   placeName: {
-    color: '#ffffff',
+    color: '#dad5da',
     fontSize: 20,
     fontFamily: 'Nunito-Bold',
     marginBottom: 1,
@@ -150,15 +151,15 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   mapIcon: {
-    width: 17,
-    height: 17,
-    tintColor: '#ffffff',
+    width: 20,
+    height: 20,
+    tintColor: '#162e49',
     marginRight: 5,
   },
   locationText: {
-    color: '#ffffff',
+    color: '#dad5da',
     fontFamily: 'Nunito-Regular',
-    fontSize: 17,
+    fontSize: 15,
     textShadowColor: 'rgba(0, 0, 0, 1)',
     textShadowOffset: {width: 1, height: 2},
     textShadowRadius: 2,

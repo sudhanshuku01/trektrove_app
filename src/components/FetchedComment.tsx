@@ -97,7 +97,7 @@ return (
 
 const styles = StyleSheet.create({
   nointcontainer:{
-     marginVertical:30,
+     marginVertical:30, 
      padding:15,
   },
   nointtext:{

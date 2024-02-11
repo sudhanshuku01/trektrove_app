@@ -125,7 +125,9 @@ const Login = () => {
 };
 
 const styles = StyleSheet.create({
-  login: {},
+  login: {
+    
+  },
   container: {
     justifyContent: 'center',
     alignItems: 'center',

@@ -1,4 +1,4 @@
-import {TouchableHighlight,Image,ImageProps,ScrollView, StyleSheet, Text, View } from 'react-native'
+import {TouchableHighlight,Image,ImageProps,ScrollView, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import React, { Dispatch, SetStateAction } from 'react'
 import overview_IMG from '../../images/Others/maps-flags_447031.png';
 import iternerary_IMG from '../../images/Others/destination.png';
@@ -44,17 +44,16 @@ const GuideHeadList:React.FC<GuideHeadListProps> = ({active,setActive}) => {
       showsHorizontalScrollIndicator={false}
        >
         {Guide.map((item, index) => (
-          <TouchableHighlight
-            underlayColor={'rgba(126,127,161,0.8)'}
+          <TouchableOpacity
            onPress={()=>setActive(item.name)} 
            key={index}
            >
-            <View  style={[{backgroundColor:item.name === active ?'rgba(126,127,161,0.8)':'rgba(126,127,161,0.1)'},styles.guide]}>
+            <View  style={[{backgroundColor:item.name === active ?'#65403a':'#dad5da'},styles.guide]}>
             <Image style={styles.guideimage} source={item.image}
             />
             <Text style={styles.guidetext}>{item.name}</Text>
             </View>
-          </TouchableHighlight>
+          </TouchableOpacity>
         ))}
       </ScrollView>
   )

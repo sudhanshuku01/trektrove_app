@@ -77,8 +77,22 @@ const Signup = () => {
       userData.append('email', email);
       userData.append('password', password);
       userData.append('confirmPassword', confirmPassword);
-      userData.append('profilePicture', profilePicture);
-      console.log(profilePicture)
+      
+      if(!profilePicture){
+        showToast('profile Picture is needed')
+        return ;
+      }
+      const imageUriParts = profilePicture.split('.');
+      const fileType = imageUriParts[imageUriParts.length - 1];
+      const file = {
+        uri: profilePicture,
+        type: `image/${fileType}`,
+        name: `profile_picture.${fileType}`,
+      };
+
+      userData.append('profilePicture', file);
+
+      console.log(profilePicture);
       const response = await axios.post(
         'https://backend-t-u090.onrender.com/auth/signup',
         userData,
@@ -91,13 +105,17 @@ const Signup = () => {
       if (response && response.data.success) {
         showToast(response.data.message);
         navigation.push('Notification');
-        console.log("done")
+        console.log('done');
       } else {
         showToast('Something went please try after some time');
       }
     } catch (error: any) {
-      console.log(error);
-      console.log(error.response.data)
+      if(error.response){
+        showToast(error.response.data.message)
+      }else{
+        console.log(error);
+        showToast('something went try after sometime')
+      }
     } finally {
       setFetching(false);
     }
@@ -134,11 +152,7 @@ const Signup = () => {
         console.log('Image picker error: ', response.errorMessage);
       } else {
         let imageUri = response.assets?.[0].uri;
-        if (imageUri) {
-          setProfilePicture(imageUri);
-          console.log(response);
-          console.log(imageUri);
-        }
+        setProfilePicture(imageUri);
       }
     });
   };
@@ -168,7 +182,6 @@ const Signup = () => {
         let imageUri = response.assets?.[0].uri;
         if (imageUri) {
           setProfilePicture(imageUri);
-          // console.log(response);
         }
       }
     });
@@ -197,94 +210,93 @@ const Signup = () => {
   };
 
   return (
-       <>
-       {fetching && <Apploader/>}
-         <ScrollView
-      scrollEnabled={!fetching}
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={styles.signup}>
-      <Header />
-      <View style={styles.container}>
-        <Text style={styles.title}>Signup Now</Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Username"
-          onChangeText={text => setUsername(text)}
-          value={username}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="First Name"
-          onChangeText={text => setFirstName(text)}
-          value={firstName}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Last Name"
-          onChangeText={text => setLastName(text)}
-          value={lastName}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          onChangeText={text => setEmail(text)}
-          value={email}
-          keyboardType="email-address"
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          onChangeText={text => setPassword(text)}
-          value={password}
-          secureTextEntry={true}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Confirm Password"
-          onChangeText={text => setConfirmPassword(text)}
-          value={confirmPassword}
-          secureTextEntry={true}
-        />
-        {profilePicture && (
-          <Image
-            source={{uri: profilePicture}}
-            style={styles.profileImage}
+    <>
+      {fetching && <Apploader />}
+      <ScrollView
+        scrollEnabled={!fetching}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.signup}>
+        <Header />
+        <View style={styles.container}>
+          <Text style={styles.title}>Signup Now</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Username"
+            onChangeText={text => setUsername(text)}
+            value={username}
           />
-        )}
-        <TouchableOpacity
-          style={styles.imagePickerButton}
-          onPress={openImagePicker}>
-          <Text style={styles.buttonText}>Choose Profile Picture</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.cameraButton}
-          onPress={handleCameraLaunch}>
-          <Text style={styles.buttonText}>Take Picture</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleSignup}>
-          <Text style={styles.buttonText}>Signup</Text>
-        </TouchableOpacity>
+          <TextInput
+            style={styles.input}
+            placeholder="First Name"
+            onChangeText={text => setFirstName(text)}
+            value={firstName}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Last Name"
+            onChangeText={text => setLastName(text)}
+            value={lastName}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Email"
+            onChangeText={text => setEmail(text)}
+            value={email}
+            keyboardType="email-address"
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Password"
+            onChangeText={text => setPassword(text)}
+            value={password}
+            secureTextEntry={true}
+          />
+          <TextInput
+            style={styles.input}
+            placeholder="Confirm Password"
+            onChangeText={text => setConfirmPassword(text)}
+            value={confirmPassword}
+            secureTextEntry={true}
+          />
+          {profilePicture && (
+            <Image source={{uri: profilePicture}} style={styles.profileImage} />
+          )}
+          <TouchableOpacity
+            style={styles.imagePickerButton}
+            onPress={openImagePicker}>
+            <Text style={styles.buttonText}>Choose Profile Picture</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.cameraButton}
+            onPress={handleCameraLaunch}>
+            <Text style={styles.buttonText}>Take Picture</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={handleSignup}>
+            <Text style={styles.buttonText}>Signup</Text>
+          </TouchableOpacity>
 
-        <View style={styles.Linkview}>
-          <Text style={styles.Link}>Already have an account?</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-            <Text style={styles.bold}>Login</Text>
-          </TouchableOpacity>
+          <View style={styles.Linkview}>
+            <Text style={styles.Link}>Already have an account?</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+              <Text style={styles.bold}>Login</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.Linkview}>
+            <Text style={styles.Link}>Create Guest User ?</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('Guest')}>
+              <Text style={styles.bold}>Guest</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <View style={styles.Linkview}>
-          <Text style={styles.Link}>Create Guest User ?</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Guest')}>
-            <Text style={styles.bold}>Guest</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </ScrollView>
-       </>
+      </ScrollView>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
-  signup: {},
+  signup: {
+    backgroundColor:'#eff1ee'
+  },
   container: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -295,6 +307,7 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontFamily: 'Poppins-Bold',
     marginBottom: 20,
+    color:'#65403a'
   },
   input: {
     width: '100%',
@@ -306,6 +319,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     fontFamily: 'PlusJakartaSans-Regular',
     fontSize: 15,
+    color:'#18465a' 
   },
   button: {
     width: '100%',

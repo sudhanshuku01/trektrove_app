@@ -17,9 +17,9 @@ const Notification = () => {
       />
       <Text style={styles.title}>Successful Signup!</Text>
       <Text style={styles.message}>You have successfully signed up.</Text>
-      <Text style={styles.message}>You can now login to your account.</Text>
+      <Text style={styles.message}>Please verify your email before login check your email!</Text>
       <TouchableOpacity onPress={()=>navigation.navigate('Login')} style={styles.loginButton}>
-        <Text style={styles.loginButtonText}>Login</Text>
+        <Text style={styles.loginButtonText}>Go to login</Text>
       </TouchableOpacity>
     </View>
   );

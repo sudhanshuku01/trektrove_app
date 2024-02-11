@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   head: {
-    color: '#4d6160',
+    color: 'rgba(101, 64, 58, 1)',
     marginBottom: 10,
     fontSize: 23,
     fontFamily: 'Raleway-Bold'
@@ -197,55 +197,59 @@ const styles = StyleSheet.create({
   paragraph:{
     fontSize: 17,
     lineHeight: 22,
-    color: '#493736',
+    color: '#18465a',
     fontFamily: 'PlusJakartaSans-Regular',
     borderRadius: 20,
   },
   title:{
-    color: '#4d6160',
+    color: 'rgba(101, 64, 58, 1)',
     fontSize: 20,
     fontFamily: 'Raleway-Bold',
     marginVertical:10,
   },
   subtitle: {
-    color: '#4d6160',
+    color: '#eff1ee',
     fontSize: 19,
-    fontFamily: 'Raleway-Bold',
+    fontFamily: 'PlusJakartaSans-Medium',
     textAlign: 'left',
     marginVertical:4,
   },
   flatlist:{
 
   },
-  cardcontainer:{
-    width:280,
-    marginRight:25,
-    borderRadius:10,
-    overflow:'hidden',
-    borderWidth:1,
-    borderColor:'#000'
+  cardcontainer: {
+    width: 280,
+    marginRight: 25,
+    borderRadius: 10,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: '#000',
+    backgroundColor: 'rgba(24, 70, 90, 1)',
   },
-  image:{
-    height:250,
-    width:'100%',
-    objectFit:'cover'
+  image: {
+    height: 250,
+    width: '100%',
+    objectFit: 'cover',
   },
-  textcontainer:{
-    padding:8,
+  textcontainer: {
+    padding: 8,
   },
   description: {
     fontSize: 16,
     lineHeight: 22,
-    color: '#493736',
+    color: '#eff1ee',
     fontFamily: 'PlusJakartaSans-Regular',
     borderRadius: 20,
   },
   button:{
-    backgroundColor:'rgba(126,127,161,0.4)',
-    textAlign:'center',
-    paddingVertical:4,
-    marginTop:30,
-    marginBottom:10,
+    width: 100,
+    backgroundColor: '#b84c36',
+    fontSize: 15,
+    textAlign: 'center',
+    borderRadius: 8,
+    padding: 4,
+    marginVertical: 20,
+    color: 'rgba(239, 241, 238, 1)',
   }
 });
 

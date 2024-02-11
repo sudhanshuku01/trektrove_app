@@ -18,25 +18,23 @@ const styles = StyleSheet.create({
     padding:15,
   },
   head:{
-    color:'#4d6160',
-    marginTop:20,
-    marginBottom:10,
+    color:'rgba(24, 70, 90, 1)',
+    marginVertical:10,
     fontSize:26,
     fontFamily:'Poppins-ExtraBold',
-    textAlign:'center'
   },
   title:{
-    color:'#4d6160',
-    marginBottom:10,
-    fontSize:23,
+    color:'rgba(101, 64, 58, 1)',
+    fontSize:24,
     fontFamily:'Raleway-Bold',
     textAlign:'left',
+    marginVertical:10,
   },
   description:{
     fontSize: 16,
     lineHeight: 22,
-    color:'#493736',
+    color:'rgba(24, 70, 90, 1)',
     fontFamily:'PlusJakartaSans-Regular',
-    borderRadius:20
+    borderRadius:20,
   }
 });

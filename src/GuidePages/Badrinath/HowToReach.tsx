@@ -29,7 +29,7 @@ const HowToReach = () => {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
+    // padding: 16,
   },
   title: {
     fontSize: 23,

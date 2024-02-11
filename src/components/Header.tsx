@@ -21,11 +21,11 @@ const Header = () => {
         barStyle={'dark-content'}
       />
        <LinearGradient
-         colors={["#d1edee","#05a3ad"]} 
+         colors={["#18465a","#18465a"]} 
          start={{ x: 1, y: 0 }}
          end={{ x: 0, y: 1}}
         style={styles.header}>
-        <Text style={styles.header_text}>TrekTripper</Text>
+        <Text style={styles.header_text}>TrekTrove</Text>
       </LinearGradient>
     </>
   )
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   header_text:{
     fontSize:25,
-    color:'#f8f3f6',
+    color:'rgba(239, 241, 238, 1)',
     fontFamily:'Poppins-ExtraBold'
   }
 })
