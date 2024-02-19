@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     padding:15,
   },
   head:{
-    color:'rgba(24, 70, 90, 1)',
+    color:'#3F503A',
     marginVertical:10,
     fontSize:26,
     fontFamily:'Poppins-ExtraBold',

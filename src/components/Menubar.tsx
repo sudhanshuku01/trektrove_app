@@ -54,14 +54,14 @@ const Menubar: React.FC<MenubarProps> = ({ activeScreen, setActiveScreen }) => {
   
   return (
     <LinearGradient
-     colors={["#18465a","#18465a"]} 
+    colors={["#00b89f","#00b89f"]} 
          start={{ x: 1, y: 0 }}
          end={{ x: 0, y: 1}}
      style={styles.menubar}>
 
       {DATA.map((data, index) => (
         <TouchableHighlight
-          underlayColor={"#b84c36"}
+          underlayColor={"#231f20"}
           onPress={() => {
             setActiveScreen(data.screen);
              navigation.navigate(data.screen);
@@ -74,7 +74,7 @@ const Menubar: React.FC<MenubarProps> = ({ activeScreen, setActiveScreen }) => {
         >
           <Image
             style={[
-              activeScreen === data.screen ? { tintColor: '#3c3c3c' }:{tintColor:"#eff1ee"},
+              activeScreen === data.screen ? { tintColor: '#eff1ee' }:{tintColor:"#eff1ee"},
               styles.menubar_img,
             ]}
             source={data.image}
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     height: 27,
   },
   activemenu: {
-    backgroundColor: '#b84c36',
+    backgroundColor: '#231f20',
     transform: [{ translateY: -20 }],
   },
 });

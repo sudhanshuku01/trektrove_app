@@ -9,9 +9,6 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
-  NativeSyntheticEvent,
-  NativeScrollEvent,
 } from 'react-native';
 import Search from '../components/Search';
 import Getstarted from '../components/Getstarted';
@@ -46,6 +43,6 @@ const styles = StyleSheet.create({
   quotes_text: {
     fontSize: 25,
     fontFamily: 'Poppins-BlackItalic',
-    color:' rgba(24, 70, 90, 1)'
+    color:'#3F503A'
   },
 });

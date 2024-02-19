@@ -173,9 +173,9 @@ const Food = () => {
               <Text numberOfLines={7} style={styles.description}>
                 {item.description}
               </Text>
-              <TouchableOpacity
+              <TouchableOpacity style={styles.readmoreclickbutton}
                 onPress={() => handleReadMorePress(item.url)}>
-                <Text style={styles.button}>Read More</Text>
+                <Text style={styles.readmore}>Read More</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -208,9 +208,9 @@ const styles = StyleSheet.create({
     marginVertical:10,
   },
   subtitle: {
-    color: '#eff1ee',
-    fontSize: 19,
-    fontFamily: 'PlusJakartaSans-Medium',
+    color: 'rgba(101, 64, 58, 1)',
+    fontSize: 17,
+    fontFamily: 'PlusJakartaSans-Bold',
     textAlign: 'left',
     marginVertical:4,
   },
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderWidth: 1,
     borderColor: '#000',
-    backgroundColor: 'rgba(24, 70, 90, 1)',
+    backgroundColor: '#eff1ee',
   },
   image: {
     height: 250,
@@ -235,22 +235,24 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   description: {
-    fontSize: 16,
+    fontSize: 15,
     lineHeight: 22,
-    color: '#eff1ee',
+    color: 'rgba(24, 70, 90, 1)',
     fontFamily: 'PlusJakartaSans-Regular',
     borderRadius: 20,
   },
-  button:{
-    width: 100,
+  readmoreclickbutton: {
     backgroundColor: '#b84c36',
-    fontSize: 15,
-    textAlign: 'center',
+    width: 100,
     borderRadius: 8,
-    padding: 4,
-    marginVertical: 20,
+    padding: 5,
+    marginVertical: 15,
+  },
+  readmore: {
+    fontSize: 16,
+    textAlign: 'center',
     color: 'rgba(239, 241, 238, 1)',
-  }
+  },
 });
 
 export default Food;

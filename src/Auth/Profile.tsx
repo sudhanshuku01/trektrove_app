@@ -115,7 +115,7 @@ const Profile = () => {
       {fetching && <Apploader />}
       <View style={styles.container}>
         <LinearGradient
-          colors={['#d100ee', '#abf4d0']}
+          colors={['#00b89f',  '#F4C57A']}
           start={{x: 1, y: 0}}
           end={{x: 0, y: 1}}
           style={styles.profilelineargradient}>

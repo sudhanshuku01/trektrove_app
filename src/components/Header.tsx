@@ -5,15 +5,6 @@ import LinearGradient from 'react-native-linear-gradient'
 const Header = () => {
   return (
     <>
-   {/* 
-    head background
-    "#d1edee" "#05a3ad"
-    App head
-    #f8f3f6
-    Heading and Paragraph
-
-   
-   */}
     <StatusBar
         animated={true}
         translucent={true}
@@ -21,7 +12,7 @@ const Header = () => {
         barStyle={'dark-content'}
       />
        <LinearGradient
-         colors={["#18465a","#18465a"]} 
+        colors={["#00b89f","#00b89f"]} 
          start={{ x: 1, y: 0 }}
          end={{ x: 0, y: 1}}
         style={styles.header}>
@@ -40,7 +31,7 @@ const styles = StyleSheet.create({
   },
   header_text:{
     fontSize:25,
-    color:'rgba(239, 241, 238, 1)',
+    color:'#eff1ee',
     fontFamily:'Poppins-ExtraBold'
   }
 })

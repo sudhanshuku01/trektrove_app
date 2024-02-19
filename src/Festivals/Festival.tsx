@@ -208,7 +208,7 @@ const Festival = () => {
         data={UttarakhandFestivals}
         keyExtractor={(item, index) => index.toString()}
         horizontal
-        contentContainerStyle={styles.scrollview}
+        contentContainerStyle={styles.flatlist}
         renderItem={({ item }) => (
           <View style={styles.cardcontainer}>
             <Image source={item.image} style={styles.image} />
@@ -218,7 +218,7 @@ const Festival = () => {
                 {item.description}
               </Text>
               <TouchableOpacity onPress={() => handleReadMorePress(item.readmoreurl)}>
-                <Text style={styles.button}>Read More</Text>
+                <Text style={styles.readmore}>Read More</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -231,34 +231,37 @@ const styles = StyleSheet.create({
   Festival: {
     padding: 15,
   },
+  food: {
+    padding: 15,
+  },
   head: {
     color: 'rgba(101, 64, 58, 1)',
     marginBottom: 10,
     fontSize: 23,
-    fontFamily: 'Raleway-Bold',
+    fontFamily: 'Raleway-Bold'
   },
-  paragraph: {
+  paragraph:{
     fontSize: 17,
     lineHeight: 22,
-    color: 'rgba(24, 70, 90, 1)',
+    color: '#18465a',
     fontFamily: 'PlusJakartaSans-Regular',
     borderRadius: 20,
   },
-  title: {
+  title:{
     color: 'rgba(101, 64, 58, 1)',
-    marginVertical: 10,
     fontSize: 20,
     fontFamily: 'Raleway-Bold',
+    marginVertical:10,
   },
   subtitle: {
-    color: '#eff1ee',
-    fontSize: 19,
-    fontFamily: 'PlusJakartaSans-Medium',
+    color: 'rgba(101, 64, 58, 1)',
+    fontSize: 17,
+    fontFamily: 'PlusJakartaSans-Bold',
     textAlign: 'left',
-    marginVertical: 4,
+    marginVertical:4,
   },
-  scrollview: {
-    display: 'flex',
+  flatlist:{
+
   },
   cardcontainer: {
     width: 280,
@@ -267,7 +270,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderWidth: 1,
     borderColor: '#000',
-    backgroundColor: 'rgba(24, 70, 90, 1)',
+    backgroundColor: '#eff1ee',
   },
   image: {
     height: 250,
@@ -278,20 +281,22 @@ const styles = StyleSheet.create({
     padding: 8,
   },
   description: {
-    fontSize: 16,
+    fontSize: 15,
     lineHeight: 22,
-    color: '#eff1ee',
+    color: 'rgba(24, 70, 90, 1)',
     fontFamily: 'PlusJakartaSans-Regular',
     borderRadius: 20,
   },
-  button: {
-    width: 100,
+  readmoreclickbutton: {
     backgroundColor: '#b84c36',
-    fontSize: 15,
-    textAlign: 'center',
+    width: 100,
     borderRadius: 8,
-    padding: 4,
-    marginVertical: 20,
+    padding: 5,
+    marginVertical: 15,
+  },
+  readmore: {
+    fontSize: 16,
+    textAlign: 'center',
     color: 'rgba(239, 241, 238, 1)',
   },
 });
