@@ -80,7 +80,7 @@ const App = () => {
               options={{
                 headerShown: false,
               }}
-            /> 
+            />
           </RootStack.Navigator>
           <Menubar
             activeScreen={activeScreen}

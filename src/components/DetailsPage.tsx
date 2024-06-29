@@ -1,13 +1,13 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {DETAILS_dataType} from '../Assets/Place';
-import {DETAILS_DATA} from '../Assets/Place';
+import React, { useContext, useEffect, useState } from 'react';
+import { DETAILS_dataType } from '../Assets/Place';
+import { DETAILS_DATA } from '../Assets/Place';
 import map_IMG from '../images/Others/maps-flags_447031.png';
 import heart_IMG from '../images/Others/heartde.png';
 import Comment from './Comment';
-import {useAuth} from '../Context/Authcontext';
+import { useAuth } from '../Context/Authcontext';
 import MoreImage from './MoreImage';
 import Guide from '../GuidePages/MainPage/Guide';
-import {NetworkContext} from '../Context/NetworkProvider';
+import { NetworkContext } from '../Context/NetworkProvider';
 
 import {
   ScrollView,
@@ -23,6 +23,7 @@ import {
 import NearbyPlace from './NearbyPlace';
 import axios from 'axios';
 import Apploader from './Apploader';
+import ShownMap from './ShownMap';
 
 interface DetailsPageProps {
   Place: string;
@@ -36,7 +37,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({
   Place,
 }) => {
   const [auth, setAuth] = useAuth();
-  const {isConnected} = useContext(NetworkContext);
+  const { isConnected } = useContext(NetworkContext);
 
   const [likedPlaces, setLikedPlaces] = useState<string[]>([]);
 
@@ -156,7 +157,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({
       scrollEnabled={!fetching}
       showsVerticalScrollIndicator={false}
       style={styles.detailspage}>
-       <ImageBackground
+      <ImageBackground
         resizeMode="cover"
         source={DATA.Images[imgindex]}
         style={styles.backgroundImage}>
@@ -171,8 +172,8 @@ const DetailsPage: React.FC<DetailsPageProps> = ({
           <Image
             style={[
               likedPlaces.includes(DATA.name)
-                ? {tintColor: 'red'}
-                : {tintColor: 'white'},
+                ? { tintColor: 'red' }
+                : { tintColor: 'white' },
               styles.likebutton,
             ]}
             source={heart_IMG}
@@ -191,7 +192,7 @@ const DetailsPage: React.FC<DetailsPageProps> = ({
           Images={DATA.Images}
         />
       </ImageBackground>
-
+      <ShownMap Place={Place} />
       <Guide Place={Place} />
 
       <NearbyPlace NearbyPlaces={DATA.Nearbyplace} />
@@ -222,7 +223,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Nunito-Bold',
     marginBottom: 1,
     textShadowColor: 'rgba(0, 0, 0, 1)',
-    textShadowOffset: {width: 1, height: 2},
+    textShadowOffset: { width: 1, height: 2 },
     textShadowRadius: 2,
   },
   locationContainer: {
@@ -240,7 +241,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Nunito-Regular',
     fontSize: 16,
     textShadowColor: 'rgba(0, 0, 0, 1)',
-    textShadowOffset: {width: 1, height: 2},
+    textShadowOffset: { width: 1, height: 2 },
     textShadowRadius: 2,
     marginTop: 8,
   },

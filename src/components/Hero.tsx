@@ -2,13 +2,15 @@ import { StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
 import ImageCard from './ImageCard'
 import About from './About'
+import UKmap from './UKmap'
 
 
-const Hero = () => { 
+const Hero = () => {
   return (
     <View>
-     <ImageCard />
-     <About /> 
+      <ImageCard />
+      <UKmap />
+      <About />
     </View>
   )
 }

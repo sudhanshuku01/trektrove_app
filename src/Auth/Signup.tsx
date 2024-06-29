@@ -281,12 +281,12 @@ const Signup = () => {
               <Text style={styles.bold}>Login</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.Linkview}>
+          {/* <View style={styles.Linkview}>
             <Text style={styles.Link}>Create Guest User ?</Text>
             <TouchableOpacity onPress={() => navigation.navigate('Guest')}>
               <Text style={styles.bold}>Guest</Text>
             </TouchableOpacity>
-          </View>
+          </View> */}
         </View>
       </ScrollView>
     </>

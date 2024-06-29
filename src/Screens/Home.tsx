@@ -13,7 +13,9 @@ import {
 import Search from '../components/Search';
 import Getstarted from '../components/Getstarted';
 
-const Home = () => { 
+import LocationComponent from '../components/DeviceLocation';
+
+const Home = () => {
   return (
     <SafeAreaView style={styles.home}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -23,6 +25,7 @@ const Home = () => {
           <Text style={styles.quotes_text}>world with TrekTrove </Text>
         </View>
         <Search />
+        {/* <LocationComponent/>  */}
         <Hero />
         <Getstarted />
       </ScrollView>
@@ -34,7 +37,7 @@ export default Home;
 
 const styles = StyleSheet.create({
   home: {
-    backgroundColor: 'rgba(239, 241, 238,1)', 
+    backgroundColor: 'rgba(239, 241, 238,1)',
   },
   quotes: {
     paddingHorizontal: 15,
@@ -43,6 +46,6 @@ const styles = StyleSheet.create({
   quotes_text: {
     fontSize: 25,
     fontFamily: 'Poppins-BlackItalic',
-    color:'#3F503A'
+    color: '#3F503A'
   },
 });

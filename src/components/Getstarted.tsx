@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Image,
   StyleSheet,
@@ -29,14 +29,14 @@ const Getstarted = () => {
   return (
     <>
       {isVisible && (
-        <Animated.View style={[styles.container, {height: height}]}>
+        <Animated.View style={[styles.container, { height: height }]}>
           <LinearGradient
             colors={['#00b89f', '#00b89f']}
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 1}}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
             style={[styles.linearGradient]}>
             <Image style={styles.yovaimage} source={yova_tourism_IMG} />
-            <Text style={styles.text1}>Yova Tourism Club Welcome You</Text>
+            <Text style={styles.text1}>Yuva Tourism Club Welcome You</Text>
             <Text style={styles.text2}>To Explore The Uttarakhand</Text>
           </LinearGradient>
         </Animated.View>

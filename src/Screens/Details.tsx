@@ -3,19 +3,19 @@ import React, { useState } from 'react'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import { RootStackParamList } from '../App'
 
-type DetailsProps=NativeStackScreenProps<RootStackParamList,"Details">
-  
+type DetailsProps = NativeStackScreenProps<RootStackParamList, "Details">
+
 import DetailsPage from '../components/DetailsPage'
 import Apploader from '../components/Apploader'
 
-const Details = ({route}:DetailsProps) => {
-  const [fetching,setFetching]=useState(false);
-  const {Place}=route.params;
-  return (   
+const Details = ({ route }: DetailsProps) => {
+  const [fetching, setFetching] = useState(false);
+  const { Place } = route.params;
+  return (
     <View>
       <DetailsPage fetching={fetching} setFetching={setFetching} Place={Place} />
-      {fetching && <Apploader/>}
-    </View> 
+      {fetching && <Apploader />}
+    </View>
   )
 }
 

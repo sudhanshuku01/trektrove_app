@@ -113,12 +113,12 @@ const Login = () => {
             <Text style={styles.bold}>Signup</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.Linkview}>
+        {/* <View style={styles.Linkview}>
           <Text style={styles.Link}>Create Guest User ?</Text>
           <TouchableOpacity onPress={() => navigation.push('Guest')}>
             <Text style={styles.bold}>Guest</Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
       </View>
     </ScrollView>
   );

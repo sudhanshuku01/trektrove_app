@@ -1,5 +1,7 @@
-import {ImageProps} from 'react-native';
+import { ImageProps } from 'react-native';
 import IMG from '../images/Others/defalutukimg.jpg';
+
+import astavark_IMG from '../images/Others/astavakra.jpg'
 
 import almora_IMG1 from '../images/almora/almora1.jpg';
 import almora_IMG2 from '../images/almora/almora-uttarakhand-28-apr-2022-600nw-2150882125.jpg';
@@ -133,6 +135,14 @@ import yamunotri_IMG3 from '../images/yamunotri/yamunotri3.jpg';
 import yamunotri_IMG4 from '../images/yamunotri/yamunotri4.jpg';
 import yamunotri_IMG5 from '../images/yamunotri/yamunotri5.jpg';
 
+import nainital_IMG1 from '../images/Nainital/nainitalimg.jpg'
+
+import kausani_IMG1 from '../images/kausani/kausani.jpg'
+
+import bhimtal_IMG1 from '../images/bhimtal/bhimtal.jpg'
+
+import landsome_IMG1 from '../images/landsome/lansdowne.jpg'
+
 export interface PLACES_Datatype {
   name: string;
   image: ImageProps;
@@ -157,7 +167,7 @@ export const PLACES: PLACES_Datatype[] = [
   },
   {
     name: 'Nainital',
-    image: IMG,
+    image: nainital_IMG1,
     location: 'Nainital District, Uttarakhand',
   },
   {
@@ -207,12 +217,12 @@ export const PLACES: PLACES_Datatype[] = [
   },
   {
     name: 'Kausani',
-    image: IMG,
+    image: kausani_IMG1,
     location: 'Chamoli District, Uttarakhand',
   },
   {
     name: 'Bhimtal',
-    image: IMG,
+    image: bhimtal_IMG1,
     location: 'Uttarkashi District, Uttarakhand',
   },
   {
@@ -222,7 +232,7 @@ export const PLACES: PLACES_Datatype[] = [
   },
   {
     name: 'Lansdowne',
-    image: IMG,
+    image: landsome_IMG1,
     location: 'Rudraprayag District, Uttarakhand',
   },
 ];
@@ -315,6 +325,14 @@ export const NitNearbyLocation: NitNearbyLocationType[] = [
     howToReach:
       'Chopta is approximately 110-130 kilometers from NIT Uttarakhand and takes around 5-6 hours by car.',
   },
+  {
+    name: 'Astavakra',
+    image: astavark_IMG,
+    description:
+      "Chopta is a serene hill station located in the Rudraprayag district of Uttarakhand, India. It is also known as the 'Mini Switzerland of Uttarakhand' due to its picturesque landscapes and lush green meadows. Chopta serves as the base camp for treks to Tungnath Temple and Chandrashila Peak. It offers breathtaking views of snow-capped Himalayan peaks.",
+    howToReach:
+      'Chopta is approximately 110-130 kilometers from NIT Uttarakhand and takes around 5-6 hours by car.',
+  },
 ];
 
 export interface DETAILS_dataType {
@@ -352,7 +370,7 @@ export const DETAILS_DATA: DETAILS_dataType[] = [
   {
     name: 'Nainital',
     location: 'Nainital District, Uttarakhand',
-    Images: [IMG, IMG, IMG, IMG, IMG],
+    Images: [nainital_IMG1, nainital_IMG1, nainital_IMG1, nainital_IMG1, nainital_IMG1],
     Nearbyplace: ['Jim Corbett National Park', 'Bhimtal'],
   },
   {
@@ -436,13 +454,13 @@ export const DETAILS_DATA: DETAILS_dataType[] = [
   {
     name: 'Kausani',
     location: 'Chamoli District, Uttarakhand',
-    Images: [IMG, IMG, IMG, IMG, IMG],
+    Images: [kausani_IMG1, kausani_IMG1, kausani_IMG1, kausani_IMG1, kausani_IMG1],
     Nearbyplace: ['Almora', 'Binsar Wildlife Sanctuary'],
   },
   {
     name: 'Bhimtal',
     location: 'Uttarkashi District, Uttarakhand',
-    Images: [IMG, IMG, IMG, IMG, IMG],
+    Images: [bhimtal_IMG1, bhimtal_IMG1, bhimtal_IMG1, bhimtal_IMG1, bhimtal_IMG1],
     Nearbyplace: ['Nainital', 'Jim Corbett National Park'],
   },
   {
